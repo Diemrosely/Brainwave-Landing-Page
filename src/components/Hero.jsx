@@ -7,6 +7,7 @@ import { ScrollParallax } from "react-just-parallax";
 import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
+import CompanyLogos from "./CompanyLogos";
 
 const Hero = () => {
   const parallaxRef = useRef();
@@ -54,9 +55,9 @@ const Hero = () => {
                   height={490}
                   alt="AI"
                 />
-                <ScrollParallax isAbsolutelyPositioned>
-                  <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
-                </ScrollParallax>
+
+                <Generating className="absolute left-4 right-4 bottom-5 md:left-1/2 md:right-auto md:bottom-8 md:w-[31rem] md:-translate-x-1/2" />
+
                 <ScrollParallax isAbsolutelyPositioned>
                   <ul className="hidden absolute -left-[5.5rem] bottom-[7.5rem] px-1 py-1 bg-n-9/40 backdrop-blur border border-n-1/10 rounded-2x1 xl:flex">
                     {heroIcons.map((icon, index) => (
@@ -66,6 +67,7 @@ const Hero = () => {
                     ))}
                   </ul>
                 </ScrollParallax>
+
                 <ScrollParallax isAbsolutelyPositioned>
                   <Notification
                     className="hidden absolute -right-[5.5rem] bottom-[11rem] w-[18rem] xl:flex"
@@ -76,17 +78,18 @@ const Hero = () => {
             </div>
             <Gradient />
           </div>
+          <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
+            <img
+              src={heroBackground}
+              className="w-full"
+              width={1440}
+              height={1800}
+              alt=""
+            />
+          </div>
+          <BackgroundCircles />
         </div>
-        <div className="absolute -top-[54%] left-1/2 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]">
-          <img
-            src={heroBackground}
-            className="w-full"
-            width={1440}
-            height={1800}
-            alt=""
-          />
-        </div>
-        <BackgroundCircles />
+        <CompanyLogos className="hidden relative z-10 mt-20 lg:block" />
       </div>
       <BottomLine />
     </Section>

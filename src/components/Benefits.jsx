@@ -1,4 +1,3 @@
-import React from "react";
 import Section from "./Section";
 import { benefits } from "../constants";
 import Heading from "./Heading";
@@ -34,7 +33,7 @@ const Benefits = () => {
                     alt={item.title}
                   />
                   <p className="ml-auto font-code text-xs text-n-1 font-bold uppercase tracking-wider">
-                    Explore More
+                    Explore more
                   </p>
                   <Arrow />
                 </div>

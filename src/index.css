@@ -85,3 +85,7 @@
 .-rotate-360 {
   @apply rotate-[-360deg];
 }
+
+.btn-hover {
+  @apply hover:scale-110;
+}

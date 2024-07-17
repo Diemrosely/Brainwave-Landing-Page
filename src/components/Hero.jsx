@@ -1,16 +1,21 @@
+import React, { useState, useRef } from "react";
 import Section from "./Section";
 import Button from "./Button";
 import { curve, heroBackground, robot } from "../assets";
 import { BackgroundCircles, BottomLine, Gradient } from "./design/Hero";
 import { heroIcons } from "../constants";
 import { ScrollParallax } from "react-just-parallax";
-import { useRef } from "react";
 import Generating from "./Generating";
 import Notification from "./Notification";
 import CompanyLogos from "./CompanyLogos";
 
 const Hero = () => {
   const parallaxRef = useRef();
+  const [isFinishedAnimating, setIsFinishedAnimating] = useState(false);
+
+  const handleAnimationEnd = () => {
+    setIsFinishedAnimating(true);
+  };
 
   return (
     <Section
@@ -21,36 +26,41 @@ const Hero = () => {
       id="hero"
     >
       <div className="container relative" ref={parallaxRef}>
-        <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb:[6rem]">
-          <h1 className="h1 mb-6">
+        <div className="relative z-1 max-w-[62rem] mx-auto text-center mb-[4rem] md:mb-20 lg:mb-[6rem]">
+          <h1 className="h1 mb-6 animate-slideDown">
             Explore the Possibilities of AI Chatting with{" "}
-            <span className="inline-block relative">
+            <span
+              className="inline-block relative animate-slideLeft"
+              onAnimationEnd={handleAnimationEnd}
+            >
               Brainwave{" "}
-              <img
-                src={curve}
-                className="absolute top-full left-0 w-full xl:mt-2"
-                width={624}
-                height={28}
-                alt="Curve"
-              />
+              {isFinishedAnimating && (
+                <img
+                  src={curve}
+                  className="absolute top-full left-0 w-full xl:mt-2 animate-fadeIn"
+                  width={624}
+                  height={28}
+                  alt="Curve"
+                />
+              )}
             </span>
           </h1>
-          <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8">
+          <p className="body-1 max-w-3xl mx-auto mb-6 text-n-2 lg:mb-8 animate-slideUp">
             Unleash the power of AI within Brainwave. Upgrade your productivity
             with Brainwave, the open AI chat app.
           </p>
-          <Button href="/pricing" white>
+          <Button className="animate-slideUp btn-hover" href="/pricing" white>
             Get started
           </Button>
         </div>
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
           <div className="relative z-1 p-0.5 rounded-2xl bg-conic-gradient">
             <div className="relative bg-n-8 rounded-[1rem]">
-              <div className="h=[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
+              <div className="h-[1.4rem] bg-n-10 rounded-t-[0.9rem]" />
               <div className="aspect-[33/40] rounded-b-[0.9rem] overflow-hidden md:aspect-[688/490] lg:aspect-[1024/490]">
                 <img
                   src={robot}
-                  className="w-full scale=[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[23%]"
+                  className="w-full scale-[1.7] translate-y-[8%] md:scale-[1] md:-translate-y-[23%]"
                   width={1024}
                   height={490}
                   alt="AI"

@@ -9,7 +9,7 @@ import ClipPath from "../assets/svg/ClipPath";
 const Benefits = () => {
   return (
     <Section id="features">
-      <div className="container relative z-2">
+      <div className="container relative z-20">
         <Heading
           className="md:max-w-md lg:max-w-2xl"
           title="Chat Smarter, Not Harder with Brainwave"
@@ -17,13 +17,13 @@ const Benefits = () => {
         <div className="flex flex-wrap gap-10 mb-10">
           {benefits.map((item) => (
             <div
-              className="block relative p-0.5 bg-no-repeat bg-[length:100%_100%] md:max-w-[24rem]"
+              className="block relative p-0.5 bg-no-repeat bg-cover md:max-w-[24rem]"
               style={{
                 backgroundImage: `url(${item.backgroundUrl})`,
               }}
               key={item.id}
             >
-              <div className="relative z-2 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-none">
+              <div className="relative z-10 flex flex-col min-h-[22rem] p-[2.4rem] pointer-events-auto">
                 <h5 className="h5 mb-5">{item.title}</h5>
                 <p className="body-2 mb-6 text-n-3">{item.text}</p>
                 <div className="flex items-center mt-auto">
@@ -31,12 +31,14 @@ const Benefits = () => {
                     src={item.iconUrl}
                     width={48}
                     height={48}
-                    alt={item.title}
+                    alt={`${item.title} icon`}
                   />
-                  <p className="ml-auto font-code text-xs text-n-1 font-bold uppercase tracking-wider">
-                    Explore More
-                  </p>
-                  <Arrow />
+                  <section className="btn-hover flex items-center ml-auto cursor-pointer">
+                    <p className="ml-auto font-code text-xs text-n-1 hover:text-color-1 font-bold uppercase tracking-wider">
+                      Explore More
+                    </p>
+                    <Arrow />
+                  </section>
                 </div>
               </div>
               {item.light && <GradientLight />}
@@ -52,7 +54,7 @@ const Benefits = () => {
                       src={item.imageUrl}
                       width={380}
                       height={362}
-                      alt={item.title}
+                      alt={`${item.title} background`}
                       className="w-full h-full object-cover"
                     />
                   )}

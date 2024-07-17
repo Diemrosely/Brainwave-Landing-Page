@@ -10,6 +10,56 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+        "spin-slow-reverse": "spin 3s linear infinite reverse",
+        "spin-fast": "spin 1s linear infinite",
+        "spin-fast-reverse": "spin 1s linear infinite reverse",
+        "spin-medium": "spin 2s linear infinite",
+        "spin-medium-reverse": "spin 2s linear infinite reverse",
+        scroll: "scroll 30s linear infinite",
+        scrollReverse: "scroll 30s linear infinite reverse",
+        scrollSlow: "scroll 60s linear infinite",
+        fadeIn: "fadeIn 1s linear forwards",
+        fadeInUp: "fadeInUp 1s linear forwards",
+        slideDown: "slideDown 1s linear forwards",
+        slideUp: "slideUp 1s linear forwards",
+        slideLeft: "slideLeft 1s linear forwards",
+        slideRight: "slideRight 1s linear",
+        "bounce-once": "bounce 1s linear forwards",
+        "delayed-fade-in": "fadeIn 1s linear 1s forwards",
+        "fadeIn-bounce": "fadeIn 1s linear forwards, bounce 1s linear 1s",
+      },
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(1rem)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideDown: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+        slideLeft: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        slideRight: {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
       colors: {
         color: {
           1: "#AC6AFF",
